@@ -1,5 +1,6 @@
 package NumberConvertor;
 
+
 import static NumberConvertor.Helpers.NameLookup.*;
 
 public class NumberConvertor implements INumberConvertor {
@@ -10,43 +11,25 @@ public class NumberConvertor implements INumberConvertor {
             return "zero";
         }
 
-        String words = "";
-        int index = 0;
-        int part;
-
-        while (number > 0) {
-            part = number % 1000;
-            if (part != 0) {
-                String partWords = convertLessThanOneThousand(part);
-                words = partWords + " " + THOUSANDS[index] + " " + words;
-            }
-            index++;
-            number = number / 1000;
+        if (number < 20) {
+            return UNITS[number];
         }
-
-        return words.trim();
-    }
-
-    public String convertLessThanOneThousand(int number) {
-        String current;
-
-        if (number % 100 < 10) {
-            current = UNITS[number % 100];
-            number = number / 100;
-        } else if (number % 100 < 20 && number % 100 > 10) {
-            current = TEENS[number % 10];
-            number = number / 100;
-        } else {
-            current = UNITS[number % 10];
-            number = number / 10;
-
-            current = TENS[number % 10] + " " + current;
-            number = number / 10;
+        if (number < 100) {
+            return TENS[number / 10] + (number % 10 != 0 ? "-" + UNITS[number % 10] : "");
         }
-        if (number == 0) {
-            return current;
+        if (number < 1000) {
+            return UNITS[number / 100] + " hundred" +
+                    (number % 100 != 0 ? " and " +
+                            // Convert the tens position
+                            convertNumberToWords(number % 100) : "");
         }
-
-        return UNITS[number] + " hundred " + current;
+        if (number < 1000000) {
+            // Convert the thousands position with just the number
+            return convertNumberToWords(number / 1000) + " thousand" +
+                    (number % 1000 != 0 ? (number % 1000 < 100 ? " and " : ", ") +
+                            // Convert the hundreds position
+                            convertNumberToWords(number % 1000) : "");
+        }
+        return "";
     }
 }

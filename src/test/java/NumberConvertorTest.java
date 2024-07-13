@@ -28,20 +28,20 @@ public class NumberConvertorTest {
     public void testConvertLessThanOneThousand() {
         assertEquals("one", numberConvertor.convertNumberToWords(1));
         assertEquals("ten", numberConvertor.convertNumberToWords(10));
-        assertEquals("twenty one", numberConvertor.convertNumberToWords(21));
-        assertEquals("ninety nine", numberConvertor.convertNumberToWords(99));
+        assertEquals("twenty-one", numberConvertor.convertNumberToWords(21));
+        assertEquals("ninety-nine", numberConvertor.convertNumberToWords(99));
         assertEquals("one hundred", numberConvertor.convertNumberToWords(100));
-        assertEquals("one hundred one", numberConvertor.convertNumberToWords(101));
-        assertEquals("five hundred fifty five", numberConvertor.convertNumberToWords(555));
-        assertEquals("nine hundred ninety nine", numberConvertor.convertNumberToWords(999));
+        assertEquals("one hundred and one", numberConvertor.convertNumberToWords(101));
+        assertEquals("five hundred and fifty-five", numberConvertor.convertNumberToWords(555));
+        assertEquals("nine hundred and ninety-nine", numberConvertor.convertNumberToWords(999));
     }
 
     @Test
     public void testConvertGreaterThanOneThousand() {
         assertEquals("one thousand",numberConvertor.convertNumberToWords(1000));
-        assertEquals("one thousand one", numberConvertor.convertNumberToWords(1001));
+        assertEquals("one thousand and one", numberConvertor.convertNumberToWords(1001));
         assertEquals("ten thousand", numberConvertor.convertNumberToWords(10000));
-        assertEquals("ten thousand one", numberConvertor.convertNumberToWords(10001));
+        assertEquals("ten thousand and one", numberConvertor.convertNumberToWords(10001));
         assertEquals("one hundred thousand", numberConvertor.convertNumberToWords(100000));
     }
 
