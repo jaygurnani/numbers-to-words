@@ -10,7 +10,6 @@ public class NumberConvertor implements INumberConvertor {
         if (number == 0) {
             return "zero";
         }
-
         if (number < 20) {
             return UNITS[number];
         }

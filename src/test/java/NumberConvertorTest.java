@@ -49,5 +49,6 @@ public class NumberConvertorTest {
     public void testExceptionHandling() {
         assertThrows(IllegalArgumentException.class, ()-> NumberToWordsCLI.main(new String[]{"-1"}));
         assertThrows(IllegalArgumentException.class, ()-> NumberToWordsCLI.main(new String[]{"a"}));
+        assertThrows(RuntimeException.class, ()-> NumberToWordsCLI.main(new String[]{}));
     }
 }

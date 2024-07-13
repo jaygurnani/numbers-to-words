@@ -6,11 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="number-to-words-2" />
+        <module name="number-to-words" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="number-to-words" target="19" />
-    </bytecodeTargetLevel>
   </component>
 </project>
