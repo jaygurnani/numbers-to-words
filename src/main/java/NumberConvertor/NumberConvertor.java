@@ -1,6 +1,6 @@
 package NumberConvertor;
 
-import static Helpers.NameLookup.*;
+import static NumberConvertor.Helpers.NameLookup.*;
 
 public class NumberConvertor implements INumberConvertor {
 
@@ -33,7 +33,7 @@ public class NumberConvertor implements INumberConvertor {
         if (number % 100 < 10) {
             current = UNITS[number % 100];
             number = number / 100;
-        } else if (number % 100 < 20) {
+        } else if (number % 100 < 20 && number % 100 > 10) {
             current = TEENS[number % 10];
             number = number / 100;
         } else {

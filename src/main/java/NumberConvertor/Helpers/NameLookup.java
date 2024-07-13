@@ -1,4 +1,4 @@
-package Helpers;
+package NumberConvertor.Helpers;
 
 // Arrays for words representation
 public class NameLookup {
