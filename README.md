@@ -25,7 +25,7 @@
     - Call the function again for the remaining places
   - If the number is < 100000
     - Call the same function again for the 1000 > places
-    - If the number is not divisible by 1000 & the number % 1000 < 100 put the `and` otherwise put the ',' 
+    - If the number is not divisible by 1000 & the number % 1000 < 100 put the `and` otherwise put the `,` 
     - Call the function again for the remaining places
 - Primitive testing is done in `NumberConvertorTest` to check for numbers > 1000, numbers < 1000, provided sample
 input cases and exception handling

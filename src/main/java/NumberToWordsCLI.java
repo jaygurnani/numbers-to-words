@@ -4,7 +4,7 @@ public class NumberToWordsCLI {
 
     public static void main(String[] args) {
         if (args.length == 0) {
-            throw new RuntimeException("Invalid input side");
+            throw new RuntimeException("Invalid input, arguments must be size 1");
         }
 
         try {
