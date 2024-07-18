@@ -10,9 +10,9 @@ public class NumberToWordsCLI {
         try {
             INumberConvertor convertor = new NumberConvertor();
             String input = args[0];
-            int number = Integer.parseInt(input);
-            if (number < 0 || number > 100000) {
-                throw new IllegalArgumentException("Number out of range. Please enter a number between 0 and 100000.");
+            long number = Long.parseLong(input);
+            if (number < 0 || number > 1000000000000L) {
+                throw new IllegalArgumentException("Number out of range. Please enter a number between 0 and 1,000,000,000,000.");
             }
 
             String words = convertor.convertNumberToWords(number);

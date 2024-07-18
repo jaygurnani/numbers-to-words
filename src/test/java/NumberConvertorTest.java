@@ -46,6 +46,16 @@ public class NumberConvertorTest {
     }
 
     @Test
+    public void testConvertGreaterThanOneBillion() {
+        assertEquals("one billion",numberConvertor.convertNumberToWords(1000000000));
+        assertEquals("one billion and one", numberConvertor.convertNumberToWords(1000000001));
+        assertEquals("nine hundred and ninety-nine billion, nine hundred and ninety-nine million, " +
+                "nine hundred and ninety-nine thousand, " +
+                "nine hundred and ninety-nine", numberConvertor.convertNumberToWords(999999999999999L));
+    }
+
+
+    @Test
     public void testExceptionHandling() {
         assertThrows(IllegalArgumentException.class, ()-> NumberToWordsCLI.main(new String[]{"-1"}));
         assertThrows(IllegalArgumentException.class, ()-> NumberToWordsCLI.main(new String[]{"a"}));
