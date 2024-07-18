@@ -3,13 +3,13 @@ import java.text.DecimalFormat;
 
 public class NumberConvertor implements INumberConvertor {
 
-    private static final String[] TENS = {
-            "", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"
-    };
-
     private static final String[] UNITS = {
             "", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
             "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"
+    };
+
+    private static final String[] TENS = {
+            "", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"
     };
 
     private String convertLessThanOneThousand(int number, boolean needsAnd) {
@@ -39,7 +39,6 @@ public class NumberConvertor implements INumberConvertor {
 
     @Override
     public String convertNumberToWords(long number) {
-        // 0 to 999,999,999,999
         if (number == 0) {
             return "zero";
         }
@@ -60,45 +59,45 @@ public class NumberConvertor implements INumberConvertor {
         // nnnnnnnnnXXX
         int thousands = Integer.parseInt(snumber.substring(9, 12));
 
-        String tradBillions;
+        String parseBillions;
         switch (billions) {
             case 0:
-                tradBillions = "";
+                parseBillions = "";
                 break;
             default :
-                tradBillions = convertLessThanOneThousand(billions, false) + " billion, ";
+                parseBillions = convertLessThanOneThousand(billions, false) + " billion, ";
         }
-        String result =  tradBillions;
+        String result =  parseBillions;
 
-        String tradMillions;
+        String parseMillions;
         switch (millions) {
             case 0:
-                tradMillions = "";
+                parseMillions = "";
                 break;
             default :
-                tradMillions = convertLessThanOneThousand(millions, false) + " million, ";
+                parseMillions = convertLessThanOneThousand(millions, false) + " million, ";
         }
-        result =  result + tradMillions;
+        result =  result + parseMillions;
 
-        String tradHundredThousands;
+        String parseHundredThousands;
         switch (hundredThousands) {
             case 0:
-                tradHundredThousands = "";
+                parseHundredThousands = "";
                 break;
             default :
-                tradHundredThousands = convertLessThanOneThousand(hundredThousands, false) + " thousand, ";
+                parseHundredThousands = convertLessThanOneThousand(hundredThousands, false) + " thousand, ";
         }
-        result =  result + tradHundredThousands;
+        result =  result + parseHundredThousands;
 
-        String tradThousand;
+        String parseThousand;
         if (Integer.parseInt(snumber.substring(9, 10)) == 0 & (billions > 0 || millions > 0 || hundredThousands > 0)) {
             result = result.replaceAll(",\\s$"," ");
-            tradThousand = convertLessThanOneThousand(thousands, true);
+            parseThousand = convertLessThanOneThousand(thousands, true);
         } else {
-            tradThousand = convertLessThanOneThousand(thousands, false);
+            parseThousand = convertLessThanOneThousand(thousands, false);
 
         }
-        result =  result + tradThousand;
+        result =  result + parseThousand;
 
         // remove extra spaces
         result = result.replaceAll("^\\s+", "")
